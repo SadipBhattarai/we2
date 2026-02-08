@@ -1,0 +1,184 @@
+/* ---------------- THEME & VARIABLES ---------------- */
+:root {
+  --primary: #0066ff;
+  --primary-soft: #eef5ff;
+  --bg-body: #f4f7fb;
+  --card-bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #6b7280;
+  --input-bg: #f9fafb;
+  --border: #eeeeee;
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------------- LAYOUT CENTERING ---------------- */
+body {
+  margin: 0;
+  background: var(--bg-body);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh; 
+  padding: 15px;
+}
+
+/* ---------------- MAIN CONTAINER ---------------- */
+.app {
+  width: 100%;
+  max-width: 480px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 40px 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  min-height: 550px;
+  position: relative;
+  text-align: center;
+}
+
+/* ---------------- TYPOGRAPHY ---------------- */
+.header { margin-bottom: 30px; }
+.header span {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  display: block;
+  margin-bottom: 8px;
+}
+.header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+/* ---------------- PROGRESS BAR ---------------- */
+.progress-area { margin-bottom: 25px; }
+.progress-box {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.4s ease;
+}
+
+/* ---------------- QUESTION & OPTIONS ---------------- */
+.question {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  min-height: 60px;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+.option {
+  background: var(--input-bg);
+  padding: 18px;
+  border-radius: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
+  font-size: 15px;
+}
+.option.active {
+  background: white;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.02);
+}
+
+/* ---------------- CONTROLS & BUTTONS ---------------- */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+button {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary);
+  color: white;
+}
+
+/* Name Entry & Wide Buttons */
+.btn-primary-wide { width: 100%; }
+
+/* Previous Button style */
+.controls button:first-child {
+  background: var(--primary-soft);
+  color: var(--primary);
+  flex-grow: 1;
+}
+.controls button:last-child { flex-grow: 2; }
+
+button:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ---------------- INPUTS ---------------- */
+.input-box-light {
+  width: 100%;
+  background: var(--input-bg);
+  border: 2px solid var(--border);
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.input-box-light:focus { border-color: var(--primary); background: white; }
+
+.link-box {
+  background: var(--input-bg);
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--primary);
+  word-break: break-all;
+  margin: 15px 0;
+  border: 1px dashed var(--primary);
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 480px) {
+  .app { padding: 30px 20px; max-height: 92dvh; min-height: auto; }
+  .question { font-size: 18px; margin-bottom: 20px; }
+  .header h1 { font-size: 22px; }
+}
